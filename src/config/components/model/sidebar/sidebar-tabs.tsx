@@ -19,7 +19,10 @@ const Component: FC = () => {
   return (
     <PluginConditionTabs tabIndex={tabIndex} onChange={onTabChange}>
       {conditions.map((condition, i) => (
-        <Tab label={`設定${i + 1}${condition.fields}`} key={i} />
+        <Tab
+          label={`設定${i + 1}${condition.targetField ? ` (${condition.targetField})` : ''}`}
+          key={i}
+        />
       ))}
     </PluginConditionTabs>
   );

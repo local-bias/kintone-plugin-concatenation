@@ -11,9 +11,13 @@ declare namespace Plugin {
   type ConfigV1 = {
     version: 1;
     conditions: {
-      memo: string;
-      fields: string[];
-      isSampleUIShown: boolean;
+      targetField: string;
+      concatenationItems: (
+        | { type: 'string'; value: string }
+        | { type: 'field'; value: string }
+        | { type: 'appId' }
+        | { type: 'appName' }
+      )[];
     }[];
   };
 }

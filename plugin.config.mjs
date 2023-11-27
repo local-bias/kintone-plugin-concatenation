@@ -1,11 +1,11 @@
 //@ts-check
 const hp = 'https://konomi.app/';
 const commonCdn = 'https://kintone-plugin.konomi.app/common';
-const localhost = 'https://127.0.0.1:9999';
+const localhost = 'https://127.0.0.1:24606';
 
 /** @type { import('@konomi-app/kintone-utilities').PluginConfig } */
 export default {
-  id: 'ribbit-kintone-plugin-template',
+  id: 'ribbit-kintone-plugin-concatenation',
   pluginReleasePageUrl: `https://ribbit.konomi.app/kintone-plugin/`,
   manifest: {
     base: {
@@ -13,14 +13,14 @@ export default {
       version: '1.0.0',
       type: 'APP',
       name: {
-        en: 'kintone-plugin-template',
-        ja: 'プラグインテンプレート',
-        zh: '插件模板',
+        en: 'String Concatenation Plugin',
+        ja: '文字列結合プラグイン',
+        zh: '字符串拼接插件',
       },
       description: {
-        en: 'kintone-plugin-template',
-        ja: 'プラグインの説明をここに記載します',
-        zh: '插件模板',
+        en: 'Perform flexible string concatenation with fields that cannot be used in normal calculations or with app information',
+        ja: '通常の計算では使用できないフィールドや、アプリ情報など、柔軟な文字列の結合を行います',
+        zh: '使用无法在常规计算中使用的字段或应用程序信息进行灵活的字符串拼接',
       },
       icon: 'icon.png',
       homepage_url: { ja: hp, en: hp },

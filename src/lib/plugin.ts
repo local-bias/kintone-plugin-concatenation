@@ -2,10 +2,16 @@ import { restoreStorage } from '@konomi-app/kintone-utilities';
 import { produce } from 'immer';
 import { PLUGIN_ID } from './global';
 
+export const CONCATENATION_ITEM_TYPES = [
+  { label: '任意の文字列', value: 'string' },
+  { label: 'フィールドの値', value: 'field' },
+  // { label: 'アプリID', value: 'appId' },
+  // { label: 'アプリ名', value: 'appName' },
+] as const;
+
 export const getNewCondition = (): Plugin.Condition => ({
-  memo: '',
-  fields: [''],
-  isSampleUIShown: true,
+  targetField: '',
+  concatenationItems: [{ type: 'string', value: '' }],
 });
 
 /**

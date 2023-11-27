@@ -22,6 +22,19 @@ export const appFieldsState = selector<kintoneAPI.FieldProperty[]>({
   },
 });
 
+export const stringFieldsState = selector<kintoneAPI.FieldProperty[]>({
+  key: `${PREFIX}stringFieldsState`,
+  get: async ({ get }) => {
+    const fields = get(appFieldsState);
+    return fields.filter(
+      (field) =>
+        field.type === 'SINGLE_LINE_TEXT' ||
+        field.type === 'MULTI_LINE_TEXT' ||
+        field.type === 'RICH_TEXT'
+    );
+  },
+});
+
 export const flatFieldsState = selector<kintoneAPI.FieldProperty[]>({
   key: `${PREFIX}flatFieldsState`,
   get: async ({ get }) => {
