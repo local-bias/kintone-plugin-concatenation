@@ -20,8 +20,19 @@ const Component: FC = () => (
     </PluginFormSection>
     <PluginFormSection>
       <PluginFormTitle>結合設定</PluginFormTitle>
-      <PluginFormDescription last>
+      <PluginFormDescription>
         文字列やフィールド情報を結合する設定を行います。
+      </PluginFormDescription>
+      <PluginFormDescription last>
+        日付、日時、時刻フィールドのフォーマットについては
+        <a
+          href='https://moment.github.io/luxon/#/formatting?id=table-of-tokens'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          Luxonのドキュメント
+        </a>
+        を参照してください。
       </PluginFormDescription>
       <ConcatenationItemsForm />
     </PluginFormSection>

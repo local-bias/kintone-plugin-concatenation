@@ -1,17 +1,27 @@
-import { restoreStorage } from '@konomi-app/kintone-utilities';
+import { kintoneAPI, restoreStorage } from '@konomi-app/kintone-utilities';
 import { produce } from 'immer';
 import { PLUGIN_ID } from './global';
 
+export const FORMATTABLE_FIELD_TYPES: kintoneAPI.FieldPropertyType[] = [
+  'DATE',
+  'DATETIME',
+  'TIME',
+  'CREATED_TIME',
+  'UPDATED_TIME',
+];
+
 export const CONCATENATION_ITEM_TYPES = [
   { label: '任意の文字列', value: 'string' },
-  { label: 'フィールドの値', value: 'field' },
+  { label: 'フィールド', value: 'field' },
   // { label: 'アプリID', value: 'appId' },
   // { label: 'アプリ名', value: 'appName' },
 ] as const;
 
 export const getNewCondition = (): Plugin.Condition => ({
   targetField: '',
-  concatenationItems: [{ type: 'string', value: '' }],
+  concatenationItems: [
+    { type: 'string', value: '', isOmittedIfPreviousEmpty: false, isOmittedIfNextEmpty: false },
+  ],
 });
 
 /**

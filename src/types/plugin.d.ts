@@ -8,13 +8,25 @@ declare namespace Plugin {
   /** 🔌 過去全てのバージョンを含むプラグインの設定情報 */
   type AnyConfig = ConfigV1; // | ConfigV2 | ...;
 
+  namespace ConcatenationItem {
+    type String = {
+      type: 'string';
+      value: string;
+      isOmittedIfPreviousEmpty: boolean;
+      isOmittedIfNextEmpty: boolean;
+    };
+    type Field = { type: 'field'; value: string; format: string };
+  }
+
+  type ConcatenationType = Condition['concatenationItems'][number]['type'];
+
   type ConfigV1 = {
     version: 1;
     conditions: {
       targetField: string;
       concatenationItems: (
-        | { type: 'string'; value: string }
-        | { type: 'field'; value: string }
+        | ConcatenationItem.String
+        | ConcatenationItem.Field
         | { type: 'appId' }
         | { type: 'appName' }
       )[];
