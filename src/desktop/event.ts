@@ -43,9 +43,9 @@ for (const condition of conditions) {
             if (
               item.isOmittedIfPreviousEmpty &&
               i > 0 &&
-              arr[i - 1].type === 'field' &&
+              arr[i - 1]?.type === 'field' &&
               //@ts-ignore
-              !record[arr[i - 1].value].value
+              !record[arr[i - 1].value]?.value
             ) {
               return '';
             }
@@ -53,24 +53,28 @@ for (const condition of conditions) {
             if (
               item.isOmittedIfNextEmpty &&
               i < arr.length - 1 &&
-              arr[i + 1].type === 'field' &&
+              arr[i + 1]?.type === 'field' &&
               //@ts-ignore
-              !record[arr[i + 1].value].value
+              !record[arr[i + 1].value]?.value
             ) {
               return '';
             }
 
             return item.value;
           case 'field':
-            const fieldType = record[item.value].type;
+            const fieldType = record[item.value]?.type;
 
             if (FORMATTABLE_FIELD_TYPES.includes(fieldType as any) && item.format) {
-              const value = record[item.value].value as string;
+              const value = record[item.value]?.value as string;
               if (!value) {
                 return '';
               }
               const date = DateTime.fromISO(value);
               return date.toFormat(item.format);
+            }
+
+            if (!record[item.value]) {
+              return '';
             }
 
             return getFieldValueAsString(record[item.value], {
