@@ -1,6 +1,6 @@
 //@ts-check
 const hp = 'https://konomi.app/';
-const commonCdn = 'https://kintone-plugin.konomi.app/common';
+const cdn = 'https://kintone-plugin.konomi.app';
 const key = 'concatenation';
 
 /** @satisfies { Plugin.Meta.Config } */
@@ -37,19 +37,19 @@ export default /** @type { const } */ ({
       },
       icon: 'icon.png',
       homepage_url: { ja: hp, en: hp },
-      desktop: { js: [`${commonCdn}/desktop.js`], css: [] },
-      mobile: { js: [`${commonCdn}/desktop.js`], css: [] },
+      desktop: { js: [`${cdn}/common/desktop.js`], css: [`${cdn}/common/desktop.css`] },
+      mobile: { js: [`${cdn}/common/desktop.js`], css: [`${cdn}/common/desktop.css`] },
       config: {
         html: 'config.html',
-        js: [`${commonCdn}/config.js`],
-        css: [],
+        js: [`${cdn}/common/config.js`],
+        css: [`${cdn}/common/config.css`],
         required_params: [],
       },
     },
     prod: {
-      desktop: { js: ['desktop.js'], css: ['desktop.css'] },
-      mobile: { js: ['desktop.js'], css: ['desktop.css'] },
-      config: { js: ['config.js'], css: ['config.css'] },
+      desktop: { js: [`${cdn}/${key}/desktop.js`], css: [`${cdn}/${key}/desktop.css`] },
+      mobile: { js: [`${cdn}/${key}/desktop.js`], css: [`${cdn}/${key}/desktop.css`] },
+      config: { js: [`${cdn}/${key}/config.js`], css: [`${cdn}/${key}/config.css`] },
     },
     standalone: {
       desktop: { js: ['desktop.js'], css: ['desktop.css'] },
