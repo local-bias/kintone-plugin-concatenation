@@ -1,5 +1,5 @@
 {
-  "name": "kintone-plugin-template",
+  "name": "concatenation",
   "version": "1.1.0",
   "author": "ribbit",
   "license": "MIT",
@@ -34,12 +34,14 @@
     "@konomi-app/k2": "^1.5.0",
     "@konomi-app/prettier-config": "^1.1.2",
     "@types/luxon": "3.4.2",
+    "@types/node": "^22.15.18",
     "@types/react": "18.3.8",
     "@types/react-dom": "18.3.0",
     "concurrently": "^9.0.1",
     "dotenv": "16.4.5",
     "tailwindcss": "^3.4.12",
+    "ts-loader": "^9.5.2",
     "typescript": "^5.6.2"
   },
-  "prettier": "@konomi-app/prettier-config",
+  "prettier": "@konomi-app/prettier-config"
 }
