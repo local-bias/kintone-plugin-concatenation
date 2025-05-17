@@ -6,7 +6,7 @@ import { DateTime } from 'luxon';
 const { conditions } = restorePluginConfig();
 
 for (const condition of conditions) {
-  const { targetField, concatenationItems } = condition;
+  const { targetField, concatenationItems =[] } = condition;
   if (!targetField) {
     continue;
   }
